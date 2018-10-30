@@ -1,3 +1,5 @@
+// gcc  test.c -o test.exe
+
 #include <stdio.h>
 int main(void) {
 int i=0;        // индекс текущей команды
@@ -11,6 +13,8 @@ int z_prev=0;   // прыжок назад по условию acc==0
 int prev=0;     // безусловный прыжок назад 
  
 char command_mem[100] ="^>>[^<+>~]";
+//char command_mem[100] =",.:";  // вывод ascii-символа
+
 int data_mem[10]={0}; 
 data_mem[0]=5;  //инициализируем начальные значения    
 data_mem[1]=5; //1;
@@ -35,15 +39,20 @@ if(command_mem[i]=='.') {   // выводим число из аккумулят
     printf("Output: %d",acc); 
     printf(" ");
     };
+if(command_mem[i]==':') {   // выводим число из аккумулятора на экран 
+    printf("Output: %c",acc); 
+    printf(" ");
+    };
+	
 if (command_mem[i]=='}') // прыгаем назад?
     pz_prev=1;
 if (command_mem[i]==')') // прыгаем назад?
     z_prev=1;   
 if (command_mem[i]=='!') // прыгаем назад?
     prev=1; 
-if (command_mem[i]=='[') // прыгаем назад?
+if (command_mem[i]=='[') // цикл
     count_reg=acc-1; 
-// loop
+// цикл
 if (command_mem[i]==']' && count_reg!=0) {
     while(command_mem[i] != '[') 
         i--;
