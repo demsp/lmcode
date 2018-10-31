@@ -12,7 +12,7 @@ int pz_prev=0;  // прыжок назад по условию acc>=0
 int z_prev=0;   // прыжок назад по условию acc==0
 int prev=0;     // безусловный прыжок назад 
  
-char command_mem[100] ="^>>[^<+>~]";
+char command_mem[100] ="^>>[^<+>~]"; // data_mem[0]*data_mem[1]
 //char command_mem[100] =",.:";  // вывод ascii-символа
 
 int data_mem[10]={0}; 
