@@ -14,7 +14,8 @@ int prev=0;     // безусловный прыжок назад
  
 
 char command_mem[100]=">>0[^1+~]"; // data_mem[0]*data_mem[1]
-
+//char command_mem[100]= "0>-{1?}0!."; // max
+	
 int data_mem[10]={0}; 
 data_mem[0]=6;  //  
 data_mem[1]=6; //
