@@ -19,13 +19,14 @@ int pz_prev=0;  // прыжок назад по условию acc>=0
 int z_prev=0;   // прыжок назад по условию acc==0
 int prev=0;     // безусловный прыжок назад 
  
-char command_mem[100] ="^>>[^<+>~]"; // data_mem[0]*data_mem[1]
+//char command_mem[100] ="^>>[^<+>~]"; // data_mem[0]*data_mem[1]
+
 //char command_mem[100] ="^[>~-<~>^]"; //перенос 5 в соседнюю ячейку
-//char command_mem[100] ="!,[>~-<~>^]?";	
+char command_mem[100] ="!,[>~-<~>^]?";	
 	
 int data_mem[10]={0}; 
-data_mem[0]=5;  //инициализируем начальные значения    
-data_mem[1]=5; //1;
+//data_mem[0]=5;  //инициализируем начальные значения    
+//data_mem[1]=5; //1;
 //data_mem[2]=5;
  
 while ( command_mem[i] != '\0') {
@@ -105,13 +106,15 @@ if(acc==0){
     zflag=1;}
 else {
     zflag=0;}		  
+	system("cls");
 for (int k = 0; k<10; k++)
-   printf("%d ", data_mem[k]);
+   printf("  %d", data_mem[k]);
 printf("\r\r\r\r\r\r\r\r\r\r");
-delay(1000);
+delay(50);
 	
 //printf("i=%d",i);printf(" ");
 i++;   //увеличиваем индекс текущей команды
+//system("cls");
 }
 //переход на новую строку
 printf("\n");
@@ -120,3 +123,4 @@ printf("\n");
 //   printf("%d ", data_mem[k]);
 return 0;
 }
+
