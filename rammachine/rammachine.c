@@ -22,13 +22,11 @@ char command_mem[100] = "a>>^>+.~<+.~<<^>-<~{a"; // Фибоначчи
 
 data_mem[0]=3;   //инициализируем начальные значения
 data_mem[1]=5;
-
-
-
      
 while ( command_mem[i] != '\0') {
 	
-	
+if(command_mem[i]=='|')    
+    break;	
 if(command_mem[i]==',')  // считываем число в аккумулятор
     scanf("%d", &acc);	
 if(command_mem[i]=='+')  // прибавляем число из data_mem
