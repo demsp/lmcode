@@ -12,9 +12,13 @@ char metka_pos;
 char metka_zero;
 int data_mem[20]={0}; 
 
-//char command_mem[100] =",~+."; //вывод удвоенного числа
-//char command_mem[100] =",~>~b>~!a>~>~a>~_b>~"; //jmp
-char command_mem[100] = "^>-}a^!ba<^b."; // максимум
+//char command_mem[100] = ",~+."; //вывод удвоенного числа
+//char command_mem[100] = ",~>~b>~!a>~>~a>~_b>~"; //jmp
+//char command_mem[100] = "^>-}a^!ba<^b."; // максимум
+//char command_mem[100] = "a^.>-<~{a"; // вывод чётных чисел с10до2
+//char command_mem[100] = "a>>>^<+>~<<< ^>-<~{a>>>^."; // перемножение чисел 1вар
+//char command_mem[100] = "b>>>^<+>~<<<^>-<~)a_ba>>>^."; // перемножение чисел 2вар
+char command_mem[100] = "a>>^>+.~<+.~<<^>-<~{a"; // Фибоначчи
 
 data_mem[0]=3;   //инициализируем начальные значения
 data_mem[1]=5;
