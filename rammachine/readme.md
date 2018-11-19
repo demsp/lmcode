@@ -1,8 +1,8 @@
 //вывод удвоенного числа//
-char command_mem[100] = ",~+."; 
+<p> char command_mem[100] = ",~+."; </p>
 
 //jmp//
-char command_mem[100] = ",~>~b>~!a>~>~a>~_b>~"; 
+<p>char command_mem[100] = ",~>~b>~!a>~>~a>~_b>~"; </p>
 
 // максимум//
 char command_mem[100] = "^>-}a^!ba<^b."; 
