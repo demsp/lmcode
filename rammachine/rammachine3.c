@@ -1,17 +1,15 @@
-// gcc  test.c -o test.exe
-
 #include <stdio.h>
 int main(void) {
 int i=0;        // индекс текущей команды
 int j=0;        // индекс массива данных
 int acc = 0;
+int reg =0;   // дополнительный регитстр
 int pos_flag = 1; // Флаг acc>0
 int zero_flag =1;   // Флаг acc==0
 char metka_jmp;
 char metka_pos;
 char metka_zero;
 int data_mem[20]={0}; 
-//int dop_reg;
 
 //char command_mem[100] = ",~+."; //вывод удвоенного числа
 //char command_mem[100] = ",~>~b>~!a>~>~a>~_b>~"; //jmp
@@ -22,28 +20,21 @@ int data_mem[20]={0};
 //char command_mem[100] = "a>>^>+.~<+.~<<^>-<~{a"; // Фибоначчи
 //пример 1.8
 //char command_mem[100] = "a,)f =1-)b-)c b>^=1-~!d c>^=1+~ d<_a f>^.";  
+// поиск максимума с 1ой по 8ую ячейку
+char command_mem[100] = ">>>>>>>>>=8  @>~<c ^=1-~@>>~<-}a!b a>^<~b <^{c >^."; 
 
-char command_mem[100] = ">@<~>>@<&<^>>&"; 
-
-data_mem[0]=0;  
-data_mem[1]=5;
-data_mem[2]=6; 
-data_mem[5]=7;
-data_mem[6]=8; 
-
- 
 while ( command_mem[i] != '\0') {
-
 
 if(command_mem[i]=='@')	
 	acc=data_mem[data_mem[j]] ;
 if(command_mem[i]=='&')	
 	data_mem[data_mem[j]]=acc ;
-
-
 if(command_mem[i]=='='){ i++;
 	data_mem[j]=command_mem[i]-48; }
-
+//if(command_mem[i]=='%')  // загружаем число из аккумулятора 
+//{ reg=acc;	printf("reg %d",reg);printf(" "); }
+//if(command_mem[i]=='#')  // загружаем число в аккумулятор
+//{ acc=reg;	/*printf("acc %d",acc);printf(" ");*/ }
 if(command_mem[i]=='|')    
     break;	
 if(command_mem[i]==',')  // считываем число в аккумулятор
@@ -53,17 +44,16 @@ if(command_mem[i]=='+')  // прибавляем число из data_mem
 if(command_mem[i]=='-')  // вычитаем число data_mem 
     acc=acc-data_mem[j];     // из аккумулятора
 if(command_mem[i]=='>'){  // переход на следующий элемент данных  
-    j++;
-	//printf("j=%d",j);printf(" ");
+    j++; //printf("j%d",j);printf(" ");
     }
 if(command_mem[i]=='<'){  // переход на предыдущий элемент данных  
-    j--;
-	//printf("j=%d",j);printf(" ");
+    j--; //printf("j%d",j);printf(" ");
     }
 if(command_mem[i]=='~')  // загружаем число из аккумулятора 
     data_mem[j]=acc;         // в память данных
 if(command_mem[i]=='^')  // загружаем число из data_mem  
     acc=data_mem[j];         // в аккумулятор
+	
 if(command_mem[i]=='.') {   // выводим число из аккумулятора на экран 
     printf("Output: %d",acc); 
     printf(" ");
@@ -120,7 +110,7 @@ if(acc==0){
 else {
     zero_flag=0;}		  
 
-i++;   //увеличиваем индекс текущей команды
+i++;  
 //  printf("i=%d",i);printf(" ");
 //  printf("\n");
 //  for (int k = 0; k<20; k++)
